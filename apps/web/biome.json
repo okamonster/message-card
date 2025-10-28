@@ -1,0 +1,15 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["../../packages/eslint-config/biome.json"],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true
+  }
+}
