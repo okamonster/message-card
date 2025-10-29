@@ -1,9 +1,10 @@
 :root {
-  --theme-color: #ff6b6b;
+  --theme-color: #89cff0;
+  --background-primary-color: #89cff0;
   --backgorund-gray-color: #fefefe;
 
   /*** Button Colors ***/
-  --button-primary-color: #ff6b6b;
+  --button-primary-color: #6ca0dc;
   --button-gray-color: #919191;
 
   /*** Border Colors ***/

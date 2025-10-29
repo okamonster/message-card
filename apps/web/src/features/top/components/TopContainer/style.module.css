@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  height: 100svh;
+  background-image: url("/images/visual_image.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+  }
+}

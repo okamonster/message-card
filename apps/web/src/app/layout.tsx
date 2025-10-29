@@ -3,6 +3,7 @@ import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import "@mantine/notifications/styles.css";
 import "./globals.css";
+import "@/styles/variables.css";
 import styles from "./layout.module.css";
 
 export default function RootLayout({
