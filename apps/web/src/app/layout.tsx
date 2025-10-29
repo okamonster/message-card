@@ -5,6 +5,7 @@ import "@mantine/notifications/styles.css";
 import "./globals.css";
 import "@/styles/variables.css";
 import styles from "./layout.module.css";
+import { Viewport } from "next";
 
 export default function RootLayout({
   children,
@@ -22,3 +23,11 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+};
