@@ -6,6 +6,7 @@ import "./globals.css";
 import "@/styles/variables.css";
 import styles from "./layout.module.css";
 import { Viewport } from "next";
+import { EventProvider } from "@/features/event/EventProvider";
 
 export default function RootLayout({
   children,
@@ -17,7 +18,9 @@ export default function RootLayout({
       <body className={styles.container}>
         <MantineProvider>
           <Notifications position="top-center" />
-          <main className={styles.main}>{children}</main>
+          <EventProvider title={"akari-birthday-2025"}>
+            <main className={styles.main}>{children}</main>
+          </EventProvider>
         </MantineProvider>
       </body>
     </html>

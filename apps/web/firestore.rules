@@ -1,9 +1,24 @@
 rules_version = '2';
 
 service cloud.firestore {
+
+function requestData() {
+  return request.resource.data;
+}
+
+function isValidEventSchema(requestData) {
+  return requestData.size() == 3 
+    && requestData.title is string
+    && requestData.createdAt is timestamp
+    && requestData.updatedAt is timestamp;
+}
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read, write: if false;
+
+      match /events/{eventId} {
+        allow read
+        allow write: if isValidEventSchema(requestData());
+      }
     }
   }
 }
