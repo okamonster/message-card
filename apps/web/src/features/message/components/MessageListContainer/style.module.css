@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  min-height: 100svh;
+  height: calc(100svh - 60px);
   padding: 24px;
   background-color: var(--surface-tint);
 
