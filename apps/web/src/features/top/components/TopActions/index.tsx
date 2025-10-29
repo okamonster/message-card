@@ -11,7 +11,11 @@ export const TopActions = (): React.ReactNode => {
       >
         メッセージを書く
       </LinkButton>
-      <LinkButton href="/" color="var(--button-primary-color)" radius="lg">
+      <LinkButton
+        href="/messages"
+        color="var(--button-primary-color)"
+        radius="lg"
+      >
         みんなのメッセージを見る
       </LinkButton>
     </div>

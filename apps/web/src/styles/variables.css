@@ -1,12 +1,26 @@
 :root {
-  --theme-color: #89cff0;
-  --background-primary-color: #89cff0;
+  /* Brand palette: soft, pastel tones */
+  --brand-primary: #7aa6ff; /* darker sky for contrast */
+
+  /* Legacy aliases (for existing components) */
+  --theme-color: var(--brand-primary);
+  --background-primary-color: var(--brand-primary);
   --backgorund-gray-color: #fefefe;
 
   /*** Button Colors ***/
   --button-primary-color: #6ca0dc;
-  --button-gray-color: #919191;
+  --button-gray-color: #64748b;
 
   /*** Border Colors ***/
-  --border-gray-color: #e0e0e0;
+  --border-primary-color: #7a93c9;
+  --border-secondary-color: #a792d6;
+  --border-gray-color: #cfd6e6;
+
+  /*** Surfaces ***/
+  --surface-paper: #ffffff;
+  --surface-tint: #f2f6ff;
+
+  /*** Text ***/
+  --text-primary: #1f2937;
+  --text-muted: #4b5563;
 }

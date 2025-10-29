@@ -5,14 +5,26 @@
   background-size: cover;
   background-position: center;
   position: relative;
+}
 
-  .logo {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: auto;
-    object-fit: contain;
-  }
+.logo {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bottomContent {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  width: min(520px, 92%);
+  background: var(--surface-paper);
+  border: 3px solid var(--border-primary-color);
+  border-radius: 16px;
+  padding: 16px;
 }
