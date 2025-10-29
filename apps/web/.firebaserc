@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "message-card-akari-dev",
+    "prod": "message-card-akari",
+    "dev": "message-card-akari-dev"
+  },
+  "targets": {},
+  "etags": {}
+}
