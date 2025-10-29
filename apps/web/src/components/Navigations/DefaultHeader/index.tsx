@@ -4,7 +4,6 @@ import { Button } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { LinkButton } from "@/components/Buttons/LinkButton";
 import styles from "./style.module.css";
-import { IoArrowBack } from "react-icons/io5";
 import { BiChevronLeft } from "react-icons/bi";
 
 type Props = {
