@@ -72,7 +72,7 @@ export const MessageSendContainer = (): React.ReactNode => {
       >
         <TextInput
           label="ニックネーム"
-          placeholder="やまだたろう"
+          placeholder="ニックネームを入力してください"
           value={nickname}
           onChange={(e) =>
             setNickname(e.currentTarget.value.slice(0, MAX_NAME))
