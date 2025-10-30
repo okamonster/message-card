@@ -16,11 +16,16 @@
   --border-secondary-color: #a792d6;
   --border-gray-color: #cfd6e6;
 
+  /*** Toast Colors ***/
+  --toast-success-color: var(--button-primary-color);
+  --toast-error-color: #ff0000;
+
   /*** Surfaces ***/
   --surface-paper: #ffffff;
   --surface-tint: #f2f6ff;
 
   /*** Text ***/
   --text-primary: #1f2937;
+  --text-white: #ffffff;
   --text-muted: #4b5563;
 }

@@ -11,17 +11,19 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@repo/common": "workspace:*",
+    "@hookform/resolvers": "^5.2.2",
     "@mantine/core": "^7.14.2",
     "@mantine/hooks": "^7.14.2",
     "@mantine/notifications": "^7.14.2",
+    "@repo/common": "workspace:*",
     "@repo/ui": "workspace:*",
     "firebase": "^12.4.0",
     "next": "^16.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.65.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
