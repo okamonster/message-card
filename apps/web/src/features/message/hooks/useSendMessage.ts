@@ -1,5 +1,4 @@
 import { useEvent } from "@/features/event/EventProvider";
-import { useToast } from "@/hooks/useToast";
 import { createMessage } from "@/infrastructures/MessageOperations";
 import { CreateMessageDto } from "@repo/common";
 

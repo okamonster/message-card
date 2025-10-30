@@ -14,10 +14,11 @@ function isValidEventSchema(requestData) {
 }
 
 function isValidMessageSchema(requestData) {
-  return requestData.size() == 5
+  return requestData.size() == 6
     && requestData.nickName is string
     && requestData.message is string
     && requestData.displayStatus is string
+    && requestData.region is string
     && requestData.createdAt is timestamp
     && requestData.updatedAt is timestamp;
 }

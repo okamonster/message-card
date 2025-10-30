@@ -1,9 +1,14 @@
 "use client";
 import { LinkButton } from "@/components/Buttons/LinkButton";
-import { TextInput, Textarea, Button } from "@mantine/core";
+import { TextInput, Textarea, Button, Select } from "@mantine/core";
 import styles from "./style.module.css";
-import { useForm } from "react-hook-form";
-import type { CreateMessageDto } from "@repo/common";
+import { Controller, useForm } from "react-hook-form";
+import {
+  regionLabelMap,
+  regionList,
+  type CreateMessageDto,
+  type Region,
+} from "@repo/common";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   createMessageSchema,
@@ -20,6 +25,7 @@ export const MessageForm = (): React.ReactNode => {
   const { showErrorToast } = useToast();
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { isValid, isSubmitting, errors },
@@ -28,6 +34,7 @@ export const MessageForm = (): React.ReactNode => {
     defaultValues: {
       nickName: "",
       message: "",
+      region: "",
     },
   });
 
@@ -41,6 +48,7 @@ export const MessageForm = (): React.ReactNode => {
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
         displayStatus: "visible",
+        region: data.region ? (data.region as Region) : "noAnswer",
       };
       await sendMessage(dto);
       open();
@@ -65,6 +73,25 @@ export const MessageForm = (): React.ReactNode => {
           rows={6}
           {...register("message")}
           error={errors.message?.message}
+        />
+
+        <Controller
+          control={control}
+          name="region"
+          render={({ field }) => (
+            <Select
+              label="地域"
+              placeholder="地域を選択してください"
+              data={regionList.map((region) => ({
+                value: region,
+                label: regionLabelMap[region],
+              }))}
+              onChange={field.onChange}
+              value={field.value}
+              error={errors.region?.message}
+              w={200}
+            />
+          )}
         />
 
         <div className={styles.actions}>
