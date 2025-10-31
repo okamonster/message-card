@@ -8,7 +8,7 @@ export const createMessageSchema = z.object({
   message: z
     .string()
     .min(1, { message: "メッセージは必須です" })
-    .max(500, { message: "メッセージは500文字以内で入力してください" }),
+    .max(120, { message: "メッセージは120文字以内で入力してください" }),
   region: z.string(),
 });
 
