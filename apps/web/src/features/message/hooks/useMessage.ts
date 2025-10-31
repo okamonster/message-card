@@ -10,6 +10,10 @@ export const useMessage = (): {
   loadMore: () => Promise<void>;
   hasMore: boolean;
   loading: boolean;
+  order: "asc" | "desc";
+  setOrder: (o: "asc" | "desc") => void;
+  nickName: string;
+  setNickName: (v: string) => void;
 } => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [cursor, setCursor] = useState<QueryDocumentSnapshot | undefined>(
@@ -20,6 +24,8 @@ export const useMessage = (): {
   const { event } = useEvent();
   const PAGE_SIZE = 10;
   const mounted = useRef(true);
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
+  const [nickName, setNickName] = useState<string>("");
 
   useEffect(() => {
     mounted.current = true;
@@ -32,7 +38,13 @@ export const useMessage = (): {
 
     const loadFirst = async () => {
       setLoading(true);
-      const page = await fetchMessagesPage(event.eventId, PAGE_SIZE);
+      const page = await fetchMessagesPage(
+        event.eventId,
+        PAGE_SIZE,
+        undefined,
+        order,
+        nickName
+      );
       if (!mounted.current) return;
       setMessages(page.messages);
       setCursor(page.cursor);
@@ -47,18 +59,33 @@ export const useMessage = (): {
       setHasMore(true);
       mounted.current = false;
     };
-  }, [event]);
+  }, [event, order, nickName]);
 
   const loadMore = useCallback(async () => {
     if (!event || !hasMore || loading || !cursor) return;
     setLoading(true);
-    const page = await fetchMessagesPage(event.eventId, PAGE_SIZE, cursor);
+    const page = await fetchMessagesPage(
+      event.eventId,
+      PAGE_SIZE,
+      cursor,
+      order,
+      nickName
+    );
     if (!mounted.current) return;
     setMessages((prev) => [...prev, ...page.messages]);
     setCursor(page.cursor);
     setHasMore(page.hasMore);
     setLoading(false);
-  }, [cursor, event, hasMore, loading]);
+  }, [cursor, event, hasMore, loading, order, nickName]);
 
-  return { messages, loadMore, hasMore, loading };
+  return {
+    messages,
+    loadMore,
+    hasMore,
+    loading,
+    order,
+    setOrder,
+    nickName,
+    setNickName,
+  };
 };

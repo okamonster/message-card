@@ -9,11 +9,13 @@ import {
 import {
   addDoc,
   collection,
+  endAt,
   getDocs,
   limit,
-  startAfter,
   orderBy,
   query,
+  startAfter,
+  startAt,
   where,
 } from "firebase/firestore";
 import type { QueryDocumentSnapshot } from "firebase/firestore";
@@ -64,23 +66,33 @@ export const fetchMessagesOperation = async (
 export const fetchMessagesPage = async (
   eventId: string,
   pageSize: number,
-  cursor?: QueryDocumentSnapshot
+  cursor?: QueryDocumentSnapshot,
+  order: "asc" | "desc" = "desc",
+  nickName?: string
 ): Promise<{
   messages: Array<Message>;
   cursor?: QueryDocumentSnapshot;
   hasMore: boolean;
 }> => {
-  const base = [
-    where("displayStatus", "==", "visible"),
-    orderBy("createdAt", "desc"),
-    limit(pageSize),
-  ];
-  const constraints = cursor ? [...base, startAfter(cursor)] : base;
+  const constraints: Array<unknown> = [where("displayStatus", "==", "visible")];
+  const hasKeyword = Boolean(nickName && nickName.trim().length > 0);
+
+  if (hasKeyword) {
+    const keyword = nickName!.trim();
+    constraints.push(orderBy("nickName", "asc"));
+    constraints.push(orderBy("createdAt", order));
+    constraints.push(startAt(keyword));
+    constraints.push(endAt(`${keyword}\uf8ff`));
+  } else {
+    constraints.push(orderBy("createdAt", order));
+  }
+  constraints.push(limit(pageSize));
+  if (cursor) constraints.push(startAfter(cursor));
 
   const snapshot = await getDocs(
     query(
       collection(db, eventsCollection, eventId, messageCollection),
-      ...constraints
+      ...(constraints as any)
     )
   );
 

@@ -7,9 +7,19 @@ import type { Message } from "@repo/common";
 import { MessageDetailModal } from "~/features/message/components/MessageDetailModal";
 import { MessageCard } from "~/features/message/components/MessageCard";
 import { useDisclosure } from "@mantine/hooks";
+import { SearchSection } from "../SearchSection";
 
 export const MessageListContainer = (): React.ReactNode => {
-  const { messages, loadMore, hasMore, loading } = useMessage();
+  const {
+    messages,
+    loadMore,
+    hasMore,
+    loading,
+    order,
+    setOrder,
+    nickName,
+    setNickName,
+  } = useMessage();
   const { sentinelRef } = useInfiniteScroll({
     canLoadMore: hasMore,
     isLoading: loading,
@@ -23,6 +33,12 @@ export const MessageListContainer = (): React.ReactNode => {
   return (
     <>
       <div className={styles.container}>
+        <SearchSection
+          nickName={nickName}
+          onChangeNickName={setNickName}
+          order={order}
+          onChangeOrder={setOrder}
+        />
         <h2 className={styles.title}>みんなのメッセージ</h2>
         {messages.length === 0 ? (
           <p className={styles.empty}>
