@@ -5,7 +5,7 @@ import "@mantine/notifications/styles.css";
 import "./globals.css";
 import "@/styles/variables.css";
 import styles from "./layout.module.css";
-import { Viewport } from "next";
+import { Metadata, Viewport } from "next";
 import { EventProvider } from "@/features/event/EventProvider";
 
 export default function RootLayout({
@@ -26,6 +26,19 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: "あかりちゃん生誕メッセージカード2025",
+  description: "あかりちゃん生誕メッセージカード2025",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
+  openGraph: {
+    title: "あかりちゃん生誕メッセージカード2025",
+    description: "あかりちゃん生誕メッセージカード2025",
+    images: ["/images/ogp.png"],
+  },
+};
 
 export const viewport: Viewport = {
   width: "device-width",
