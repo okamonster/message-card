@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     description: "あかりちゃん生誕メッセージカード2025",
     images: ["/images/ogp.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "あかりちゃん生誕メッセージカード2025",
+    description: "あかりちゃん生誕メッセージカード2025",
+    images: ["/images/ogp.png"],
+  },
 };
 
 export const viewport: Viewport = {
