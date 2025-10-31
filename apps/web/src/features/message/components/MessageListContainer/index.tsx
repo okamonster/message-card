@@ -7,7 +7,7 @@ import type { Message } from "@repo/common";
 import { MessageDetailModal } from "~/features/message/components/MessageDetailModal";
 import { MessageCard } from "~/features/message/components/MessageCard";
 import { useDisclosure } from "@mantine/hooks";
-import { SearchSection } from "../SearchSection";
+import { SearchSection } from "@/features/message/components/SearchSection";
 
 export const MessageListContainer = (): React.ReactNode => {
   const {
