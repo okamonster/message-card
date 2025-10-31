@@ -14,11 +14,11 @@ import {
   createMessageSchema,
   CreateMessageSchemaType,
 } from "@/entities/Message";
-import { useSendMessage } from "../../hooks/useSendMessage";
+import { useSendMessage } from "@/features/message/hooks/useSendMessage";
 import { serverTimestamp } from "firebase/firestore";
 import { useToast } from "@/hooks/useToast";
 import { useDisclosure } from "@mantine/hooks";
-import { SendCompleteModal } from "../SendCompleteModal";
+import { SendCompleteModal } from "@/features/message/components/SendCompleteModal";
 
 export const MessageForm = (): React.ReactNode => {
   const { sendMessage } = useSendMessage();
