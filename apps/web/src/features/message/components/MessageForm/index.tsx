@@ -36,6 +36,7 @@ export const MessageForm = (): React.ReactNode => {
       message: "",
       region: "",
     },
+    mode: "all",
   });
 
   const [isOpen, { open }] = useDisclosure(false);
