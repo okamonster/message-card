@@ -4,13 +4,37 @@ export const messageCollection = "messages";
 
 export type DisplayStatus = "visible" | "hidden";
 
-export type Region = "kansai" | "kantou" | "foreign" | "noAnswer";
+export type Region =
+  | "kansai"
+  | "kantou"
+  | "chubu"
+  | "tohoku"
+  | "shikoku"
+  | "kyushu"
+  | "hokkaido"
+  | "foreign"
+  | "noAnswer";
 
-export const regionList: Region[] = ["kansai", "kantou", "foreign", "noAnswer"];
+export const regionList: Region[] = [
+  "kansai",
+  "kantou",
+  "chubu",
+  "tohoku",
+  "shikoku",
+  "kyushu",
+  "hokkaido",
+  "foreign",
+  "noAnswer",
+];
 
 export const regionLabelMap: Record<Region, string> = {
   kansai: "関西",
   kantou: "関東",
+  chubu: "中部",
+  tohoku: "東北",
+  shikoku: "四国",
+  kyushu: "九州",
+  hokkaido: "北海道",
   foreign: "海外",
   noAnswer: "非回答",
 };
