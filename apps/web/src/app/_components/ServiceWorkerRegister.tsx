@@ -58,38 +58,77 @@ export default function ServiceWorkerRegister() {
         id,
         title: "アプリをインストールできます",
         message: (
-          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-            <span>ホーム画面に追加して、オフラインでも使えます。</span>
-            <button
-              onClick={async () => {
-                const promptEvent = deferredPromptRef.current;
-                if (!promptEvent) return;
-                try {
-                  await promptEvent.prompt();
-                  const choice = await promptEvent.userChoice;
-                  if (choice?.outcome === "accepted") {
-                    showSuccessToast("インストールを開始しました");
-                  }
-                } finally {
-                  deferredPromptRef.current = null;
-                  hideNotification(id);
-                }
-              }}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              width: "min(90vw, 440px)",
+            }}
+          >
+            <div style={{ lineHeight: 1.6 }}>
+              ホーム画面に追加して、オフラインでも使えます。
+            </div>
+            <div
               style={{
-                padding: "6px 12px",
-                borderRadius: 6,
-                border: "none",
-                background: "var(--button-primary-color)",
-                color: "#fff",
-                cursor: "pointer",
+                display: "flex",
+                gap: 8,
+                justifyContent: "flex-end",
+                flexWrap: "wrap",
               }}
             >
-              インストール
-            </button>
+              <button
+                onClick={() => hideNotification(id)}
+                style={{
+                  padding: "8px 14px",
+                  borderRadius: 8,
+                  border: "1px solid #d0d7e2",
+                  background: "#f5f7fa",
+                  color: "#1f2937",
+                  cursor: "pointer",
+                }}
+              >
+                あとで
+              </button>
+              <button
+                onClick={async () => {
+                  const promptEvent = deferredPromptRef.current;
+                  if (!promptEvent) return;
+                  try {
+                    await promptEvent.prompt();
+                    const choice = await promptEvent.userChoice;
+                    if (choice?.outcome === "accepted") {
+                      showSuccessToast("インストールを開始しました");
+                    }
+                  } finally {
+                    deferredPromptRef.current = null;
+                    hideNotification(id);
+                  }
+                }}
+                style={{
+                  padding: "8px 14px",
+                  borderRadius: 8,
+                  border: "none",
+                  background: "var(--button-primary-color)",
+                  color: "#fff",
+                  cursor: "pointer",
+                }}
+              >
+                インストール
+              </button>
+            </div>
           </div>
         ),
         autoClose: false,
         withCloseButton: true,
+        styles: {
+          root: {
+            padding: 16,
+            width: "auto",
+            maxWidth: 520,
+          },
+          title: { marginBottom: 4 },
+        },
       });
     };
 
