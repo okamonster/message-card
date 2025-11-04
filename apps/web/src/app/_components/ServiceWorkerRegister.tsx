@@ -59,6 +59,7 @@ export default function ServiceWorkerRegister() {
         title: "アプリをインストールできます",
         message: (
           <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <span>ホーム画面に追加して、オフラインでも使えます。</span>
             <button
               onClick={async () => {
                 const promptEvent = deferredPromptRef.current;
