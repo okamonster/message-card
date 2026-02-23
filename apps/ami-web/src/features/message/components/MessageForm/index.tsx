@@ -70,7 +70,7 @@ export const MessageForm = (): React.ReactNode => {
 
         <Textarea
           label="メッセージ"
-          placeholder="あかりさんへのお祝いメッセージを書いてね"
+          placeholder="あみさんへのお祝いメッセージを書いてね"
           rows={6}
           {...register("message")}
           error={errors.message?.message}
