@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+
+function requestData() {
+  return request.resource.data;
+}
+
+function isValidEventSchema(requestData) {
+  return requestData.size() == 3 
+    && requestData.title is string
+    && requestData.createdAt is timestamp
+    && requestData.updatedAt is timestamp;
+}
+
+function isValidMessageSchema(requestData) {
+  return requestData.size() == 6
+    && requestData.nickName is string
+    && requestData.message is string
+    && requestData.displayStatus is string
+    && requestData.region is string
+    && requestData.createdAt is timestamp
+    && requestData.updatedAt is timestamp;
+}
+
+  match /databases/{database}/documents {
+    match /{document=**} {
+
+      match /events/{eventId} {
+        allow read
+        allow write: if isValidEventSchema(requestData());
+      }
+
+      match /events/{eventId}/messages/{messageId} {
+        allow read: if true;
+        allow write: if isValidMessageSchema(requestData());
+      }
+    }
+  }
+}

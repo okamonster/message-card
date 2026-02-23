@@ -1,0 +1,10 @@
+.searchSection {
+  display: grid;
+  gap: 12px;
+
+  .sortButtons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}

@@ -1,0 +1,32 @@
+:root {
+  /* Brand palette: baby pink, soft & gentle tones */
+  --brand-primary: #f9b8d0; /* baby pink */
+
+  /* Legacy aliases (for existing components) */
+  --theme-color: var(--brand-primary);
+  --background-primary-color: var(--brand-primary);
+  --backgorund-gray-color: #fefefe;
+
+  /*** Button Colors ***/
+  --button-primary-color: #e8729f;
+
+  --button-gray-color: #8c6e79;
+
+  /*** Border Colors ***/
+  --border-primary-color: #f5c4d8;
+  --border-secondary-color: #f2cfe0;
+  --border-gray-color: #f7e8ef;
+
+  /*** Toast Colors ***/
+  --toast-success-color: var(--button-primary-color);
+  --toast-error-color: #ff0000;
+
+  /*** Surfaces ***/
+  --surface-paper: #ffffff;
+  --surface-tint: #fff5f9;
+
+  /*** Text ***/
+  --text-primary: #1f2937;
+  --text-white: #ffffff;
+  --text-muted: #4b5563;
+}

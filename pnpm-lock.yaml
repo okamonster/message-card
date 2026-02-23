@@ -18,6 +18,67 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
 
+  apps/ami-web:
+    dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.65.0(react@19.2.1))
+      '@mantine/core':
+        specifier: ^7.14.2
+        version: 7.17.8(@mantine/hooks@7.17.8(react@19.2.1))(@types/react@19.1.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      '@mantine/hooks':
+        specifier: ^7.14.2
+        version: 7.17.8(react@19.2.1)
+      '@mantine/notifications':
+        specifier: ^7.14.2
+        version: 7.17.8(@mantine/core@7.17.8(@mantine/hooks@7.17.8(react@19.2.1))(@types/react@19.1.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@mantine/hooks@7.17.8(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      firebase:
+        specifier: ^12.4.0
+        version: 12.4.0
+      next:
+        specifier: ^16.0.8
+        version: 16.0.8(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      react:
+        specifier: ^19.2.1
+        version: 19.2.1
+      react-dom:
+        specifier: ^19.2.1
+        version: 19.2.1(react@19.2.1)
+      react-hook-form:
+        specifier: ^7.65.0
+        version: 7.65.0(react@19.2.1)
+      react-icons:
+        specifier: ^5.5.0
+        version: 5.5.0(react@19.2.1)
+      zod:
+        specifier: ^4.1.12
+        version: 4.1.12
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.9.4
+        version: 1.9.4
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
+      '@types/react':
+        specifier: 19.1.0
+        version: 19.1.0
+      '@types/react-dom':
+        specifier: 19.1.1
+        version: 19.1.1(@types/react@19.1.0)
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+
   apps/docs:
     dependencies:
       '@repo/ui':
@@ -2047,6 +2108,7 @@ packages:
   typescript@5.9.2:
     resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
     engines: {node: '>=14.17'}
+    hasBin: true
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}

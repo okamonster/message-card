@@ -1,0 +1,36 @@
+{
+  "name": "ami-web",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check --error-on-warnings .",
+    "check-types": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@mantine/core": "^7.14.2",
+    "@mantine/hooks": "^7.14.2",
+    "@mantine/notifications": "^7.14.2",
+    "@repo/common": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "firebase": "^12.4.0",
+    "next": "^16.0.8",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-hook-form": "^7.65.0",
+    "react-icons": "^5.5.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "typescript": "5.9.2"
+  }
+}
