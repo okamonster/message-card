@@ -1,12 +1,12 @@
 .form {
-  display: grid;
-  gap: 12px;
+	display: grid;
+	gap: 14px;
 
-  .actions {
-    display: flex;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-  }
+	.actions {
+		display: flex;
+		gap: 12px;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 8px;
+	}
 }

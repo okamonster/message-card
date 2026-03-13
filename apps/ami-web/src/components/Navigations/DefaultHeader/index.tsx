@@ -38,7 +38,9 @@ export const DefaultHeader = ({ title, backHref }: Props): React.ReactNode => {
         )}
       </div>
 
-      <h1 className={styles.title}>{title}</h1>
+      <div className={styles.titleWrap}>
+        <h1 className={styles.title}>{title}</h1>
+      </div>
 
       <div className={styles.right} />
     </header>

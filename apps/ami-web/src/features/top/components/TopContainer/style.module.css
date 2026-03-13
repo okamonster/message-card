@@ -1,30 +1,211 @@
-.container {
+/* ─── 共通アニメーション ─── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── ページ全体 ─── */
+.page {
   width: 100%;
-  height: 100svh;
-  background-image: url("/images/visual_image.webp");
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  /* ピンクタイル背景 */
+  background-color: var(--brand-primary);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 58px,
+      rgba(193, 88, 135, 0.35) 58px,
+      rgba(193, 88, 135, 0.35) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 58px,
+      rgba(193, 88, 135, 0.35) 58px,
+      rgba(193, 88, 135, 0.35) 60px
+    );
+
+  .photoArea {
+    /* 固定高さで制御 */
+    height: 58svh;
+    min-height: 280px;
+    max-height: 460px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: fadeSlideUp 0.7s ease both;
+  }
 }
 
-.logo {
+.photoOverlay {
   position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 350px;
-  height: auto;
-  object-fit: contain;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.06) 0%,
+    transparent 30%,
+    rgba(242, 175, 200, 0) 50%,
+    rgba(242, 175, 200, 0.55) 75%,
+    rgba(242, 175, 200, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.bottomContent {
+.photoLabel {
   position: absolute;
-  left: 50%;
-  bottom: 40px;
-  transform: translateX(-50%);
-  width: min(520px, 92%);
-  background: var(--surface-paper);
-  border: 3px solid var(--border-primary-color);
-  border-radius: 16px;
-  padding: 16px;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(201, 48, 96, 0.3);
+  border-radius: 20px;
+  padding: 4px 12px;
+  animation: fadeSlideUp 0.5s 0.1s ease both;
+
+  span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c93060;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* ─── テキスト・CTAブロック ─── */
+.contentBlock {
+  /* 上端のピンクから白へ継続グラデーション */
+  background: linear-gradient(to bottom, #f2afc8 0%, #ffffff 28%);
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── ロゴ ─── */
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  animation: fadeSlideUp 0.55s 0.12s ease both;
+}
+
+/* ─── タイトルエリア ─── */
+.titleArea {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeSlideUp 0.55s 0.22s ease both;
+}
+
+.titlePre {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c93060;
+  letter-spacing: 0.18em;
+  margin-bottom: 2px;
+}
+
+.titleMain {
+  font-family: var(--font-dancing, "Dancing Script"), cursive;
+  font-size: 50px;
+  font-weight: 700;
+  color: #c93060;
+  line-height: 1.15;
+  text-shadow:
+    0 2px 12px rgba(201, 48, 96, 0.2),
+    0 0 40px rgba(242, 175, 200, 0.45);
+}
+
+.titleKana {
+  font-size: 12px;
+  color: #9a6a80;
+  letter-spacing: 0.2em;
+  margin-top: 2px;
+}
+
+/* ─ 装飾ライン ─ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 6px 0;
+}
+
+.divider > span:first-child,
+.divider > span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201, 48, 96, 0.35),
+    transparent
+  );
+  display: block;
+}
+
+.dividerIcon {
+  font-size: 13px;
+  color: #c93060;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ─ 日付 ─ */
+.dateText {
+  font-size: 26px;
+  font-weight: 800;
+  color: #2c1420;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.dateYear {
+  font-size: 17px;
+  font-weight: 700;
+  color: #9a6a80;
+}
+
+.dateDot {
+  color: #c93060;
+}
+
+.dateMain {
+  color: #2c1420;
+}
+
+.dateSat {
+  font-size: 17px;
+  font-weight: 600;
+  color: #9a6a80;
+}
+
+.venuText {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #9a6a80;
+  margin-top: 2px;
+}
+
+/* ─── CTAエリア ─── */
+.ctaArea {
+  display: grid;
+  gap: 12px;
+  animation: fadeSlideUp 0.55s 0.35s ease both;
+}
+
+.ctaLead {
+  text-align: center;
+  font-size: 13px;
+  color: #9a6a80;
+  letter-spacing: 0.06em;
 }

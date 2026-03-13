@@ -1,86 +1,222 @@
-.modal {
-  background-color: var(--background-primary-color);
-  min-height: 100dvh;
-  display: grid;
-  align-items: center;
-  max-width: 500px;
-
-  .content {
-    display: grid;
-    gap: 24px;
-
-    .title {
-      color: var(--text-white);
-      font-size: 28px;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .anim {
-      position: relative;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .plane {
-        color: var(--text-white);
-        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-        animation: plane-fly 2400ms ease-in-out infinite;
-      }
-
-      .sparkle {
-        position: absolute;
-        color: var(--text-white);
-        opacity: 0.9;
-        font-size: 16px;
-      }
-
-      .s1 {
-        left: 35%;
-        top: 25%;
-        animation: twinkle 1600ms ease-in-out infinite;
-      }
-      .s2 {
-        left: 55%;
-        top: 40%;
-        animation: twinkle 1800ms ease-in-out infinite 200ms;
-      }
-      .s3 {
-        left: 45%;
-        top: 60%;
-        animation: twinkle 1700ms ease-in-out infinite 400ms;
-      }
-    }
-  }
+/* ─── キーフレーム ─── */
+@keyframes titleEntrance {
+	0% {
+		opacity: 0;
+		transform: scale(0.85) translateY(12px);
+	}
+	70% {
+		transform: scale(1.04) translateY(-2px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
 }
 
-@keyframes plane-fly {
-  0% {
-    transform: translate(-60px, 16px) rotate(-12deg) scale(0.95);
-  }
-  50% {
-    transform: translate(0, -8px) rotate(0deg) scale(1);
-  }
-  100% {
-    transform: translate(60px, 16px) rotate(12deg) scale(0.95);
-  }
+@keyframes heartBeat {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	30% {
+		transform: scale(1.18);
+	}
+	50% {
+		transform: scale(0.95);
+	}
+	70% {
+		transform: scale(1.08);
+	}
 }
 
 @keyframes twinkle {
-  0% {
-    transform: translateY(0) scale(0.9);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-8px) scale(1);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(0) scale(0.9);
-    opacity: 0;
-  }
+	0% {
+		transform: translateY(0) scale(0.6) rotate(0deg);
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	60% {
+		transform: translateY(-14px) scale(1.15) rotate(25deg);
+		opacity: 0.85;
+	}
+	100% {
+		transform: translateY(0) scale(0.6) rotate(0deg);
+		opacity: 0;
+	}
+}
+
+/* ハートが周囲をふんわり周回 */
+@keyframes orbit {
+	from {
+		transform: rotate(0deg) translateX(52px) rotate(0deg);
+		opacity: 0.8;
+	}
+	to {
+		transform: rotate(360deg) translateX(52px) rotate(-360deg);
+		opacity: 0.8;
+	}
+}
+
+/* シマーエフェクト */
+@keyframes shimmer {
+	0% {
+		background-position: -200% center;
+	}
+	100% {
+		background-position: 200% center;
+	}
+}
+
+@keyframes slideUpFade {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ─── モーダル本体 ─── */
+.modal {
+	background: linear-gradient(150deg, #fce4ef 0%, #f9c8dd 45%, #f5b0cc 100%);
+	min-height: 100dvh;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	max-width: 500px;
+}
+
+.content {
+	display: grid;
+	gap: 28px;
+	padding: 40px 24px;
+	width: 100%;
+	text-align: center;
+}
+
+/* ── タイトル ── */
+.title {
+	color: #2c1420;
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 1.5;
+	letter-spacing: 0.03em;
+	animation: titleEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.subtitle {
+	color: #9a6a80;
+	font-size: 14px;
+	margin-top: -16px;
+	animation: slideUpFade 0.5s 0.5s ease both;
+}
+
+/* ── アニメーションエリア ── */
+.anim {
+	position: relative;
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: slideUpFade 0.5s 0.3s ease both;
+}
+
+.heart {
+	font-size: 72px;
+	color: #c93060;
+	filter: drop-shadow(0 8px 20px rgba(201, 48, 96, 0.35));
+	animation: heartBeat 1.6s ease-in-out infinite;
+	line-height: 1;
+	position: relative;
+	z-index: 1;
+}
+
+/* 周回するミニハート */
+.orbitHeart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	font-size: 14px;
+	color: #e8457a;
+}
+
+.orbitHeart:nth-child(1) {
+	animation: orbit 3.2s linear infinite;
+}
+
+.orbitHeart:nth-child(2) {
+	animation: orbit 3.2s 0.8s linear infinite;
+}
+
+.orbitHeart:nth-child(3) {
+	animation: orbit 3.2s 1.6s linear infinite;
+}
+
+.orbitHeart:nth-child(4) {
+	animation: orbit 3.2s 2.4s linear infinite;
+}
+
+.plane {
+	color: #c93060;
+	animation: planeFly 2400ms ease-in-out infinite;
+}
+
+@keyframes planeFly {
+	0% {
+		transform: translate(-60px, 16px) rotate(-12deg) scale(0.95);
+	}
+	50% {
+		transform: translate(0, -8px) rotate(0deg) scale(1);
+	}
+	100% {
+		transform: translate(60px, 16px) rotate(12deg) scale(0.95);
+	}
+}
+
+/* キラキラ */
+.sparkle {
+	position: absolute;
+	color: #c93060;
+	opacity: 0;
+}
+
+.s1 {
+	left: 18%;
+	top: 15%;
+	font-size: 16px;
+	animation: twinkle 1.8s 0.2s ease-in-out infinite;
+}
+
+.s2 {
+	right: 16%;
+	top: 25%;
+	font-size: 12px;
+	animation: twinkle 1.6s 0.6s ease-in-out infinite;
+}
+
+.s3 {
+	left: 25%;
+	bottom: 20%;
+	font-size: 14px;
+	animation: twinkle 2s 1s ease-in-out infinite;
+}
+
+.s4 {
+	right: 22%;
+	bottom: 15%;
+	font-size: 10px;
+	animation: twinkle 1.7s 0.4s ease-in-out infinite;
+}
+
+/* ── シマーボタン ── */
+.shimmerBtn {
+	position: relative;
+	overflow: hidden;
+	animation: slideUpFade 0.5s 0.7s ease both;
 }

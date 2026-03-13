@@ -12,30 +12,47 @@ export const SendCompleteModal = ({ opened }: Props): React.ReactNode => {
   return (
     <Modal
       opened={opened}
-      onClose={() => {}}
+      onClose={() => { }}
       withCloseButton={false}
       fullScreen
       classNames={{ content: styles.modal }}
+      padding={0}
     >
       <div className={styles.content}>
-        <h2 className={styles.title}>メッセージを送信しました</h2>
+        <h2 className={styles.title}>
+          メッセージを
+          <br />
+          送信しました ♡
+        </h2>
+
         <div className={styles.anim}>
           <IoIosSend size={72} className={styles.plane} />
-          <span className={`${styles.sparkle} ${styles.s1}`}>✶</span>
-          <span className={`${styles.sparkle} ${styles.s2}`}>✦</span>
+          {/* 周回するミニハート */}
+          <span className={styles.orbitHeart}>♡</span>
+          <span className={styles.orbitHeart}>♡</span>
+          <span className={styles.orbitHeart}>♡</span>
+          <span className={styles.orbitHeart}>♡</span>
+
+          {/* キラキラ */}
+          <span className={`${styles.sparkle} ${styles.s1}`}>✦</span>
+          <span className={`${styles.sparkle} ${styles.s2}`}>✶</span>
           <span className={`${styles.sparkle} ${styles.s3}`}>✧</span>
+          <span className={`${styles.sparkle} ${styles.s4}`}>✦</span>
         </div>
 
-        <LinkButton
-          href="/messages"
-          color="var(--button-primary-color)"
-          radius="lg"
-          fullWidth
-          variant="white"
-          leftSection={<IoMailOutline size={20} />}
-        >
-          メッセージを見る
-        </LinkButton>
+
+
+        <div className={styles.shimmerBtn}>
+          <LinkButton
+            href="/messages"
+            color="var(--button-primary-color)"
+            radius="lg"
+            fullWidth
+            leftSection={<IoMailOutline size={20} />}
+          >
+            みんなのメッセージを見る
+          </LinkButton>
+        </div>
       </div>
     </Modal>
   );

@@ -1,45 +1,89 @@
+@keyframes fadeSlideUp {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .container {
-  width: 100%;
-  min-height: calc(100svh - 60px);
-  padding: 24px;
-  background-color: var(--surface-tint);
+	width: 100%;
+	min-height: calc(100svh - 60px);
+	padding: 20px 16px 40px;
 
-  /* soft floral-like dotted pattern */
-  background-image:
-    radial-gradient(
-      circle at 12px 12px,
-      rgba(249, 184, 208, 0.45) 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 0 0,
-      rgba(232, 144, 175, 0.25) 2px,
-      transparent 3px
-    );
-  background-size:
-    24px 24px,
-    24px 24px;
-  background-position:
-    0 0,
-    12px 12px;
+	/* ソフトグラデーション + 小粒ドット */
+	background-color: #fde9f2;
+	/* 左上のカラーブルーム */
+	background-image: radial-gradient(
+			ellipse at 15% 8%,
+			rgba(249, 184, 208, 0.7) 0%,
+			transparent 40%
+		), /* 右下のカラーブルーム */
+		radial-gradient(
+			ellipse at 88% 90%,
+			rgba(232, 144, 175, 0.5) 0%,
+			transparent 38%
+		), /* 中央ほのかな明るさ */
+		radial-gradient(
+			ellipse at 50% 50%,
+			rgba(255, 235, 245, 0.6) 0%,
+			transparent 55%
+		), /* 小粒ドットグリッド */
+		radial-gradient(circle, rgba(201, 48, 96, 0.1) 1.2px, transparent 1.2px);
+	background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px;
 
-  .title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-    border-bottom: 3px dotted var(--border-primary-color);
-    display: inline-block;
-  }
+	.searchWrap {
+		animation: fadeSlideUp 0.5s 0.05s ease both;
+	}
 
-  .empty {
-    color: var(--text-muted);
-  }
+	.title {
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 14px;
+		color: #2c1420;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		animation: fadeSlideUp 0.5s 0.12s ease both;
+	}
 
-  .list {
-    display: grid;
-    gap: 8px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-  }
+	.title::before {
+		content: "♡";
+		font-size: 14px;
+		color: #c93060;
+	}
+
+	.title::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(to right, rgba(201, 48, 96, 0.25), transparent);
+	}
+
+	.empty {
+		color: #9a6a80;
+		font-size: 14px;
+		text-align: center;
+		padding: 32px 0;
+		animation: fadeSlideUp 0.5s 0.2s ease both;
+	}
+
+	.list {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: start;
+
+		/* 奇数列と偶数列で入場のdelayを変える */
+		& > *:nth-child(odd) {
+			animation: fadeSlideUp 0.5s 0.2s ease both;
+		}
+
+		& > *:nth-child(even) {
+			animation: fadeSlideUp 0.5s 0.28s ease both;
+		}
+	}
 }

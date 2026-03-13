@@ -1,32 +1,48 @@
 :root {
-  /* Brand palette: baby pink, soft & gentle tones */
-  --brand-primary: #f9b8d0; /* baby pink */
+  /* ─── Dream Core Palette ─── */
+  /* Tile background base */
+  --tile-pink: #f2afc8;
+  --tile-grout: rgba(193, 88, 135, 0.38);
 
-  /* Legacy aliases (for existing components) */
+  /* Brand */
+  --brand-primary: #f2afc8;
+  --brand-crimson: #c93060;   /* ポスターの赤文字アクセント */
+  --brand-hot-pink: #e8457a;  /* ボタン・強調 */
+  --brand-soft: #f9d0e5;      /* ボーダー・薄いアクセント */
+
+  /* Legacy aliases */
   --theme-color: var(--brand-primary);
   --background-primary-color: var(--brand-primary);
   --backgorund-gray-color: #fefefe;
 
   /*** Button Colors ***/
-  --button-primary-color: #e8729f;
-
-  --button-gray-color: #8c6e79;
+  --button-primary-color: var(--brand-crimson);
+  --button-gray-color: #9a6a80;
 
   /*** Border Colors ***/
-  --border-primary-color: #f5c4d8;
-  --border-secondary-color: #f2cfe0;
-  --border-gray-color: #f7e8ef;
+  --border-primary-color: #f0a0c0;
+  --border-secondary-color: #e890b5;
+  --border-gray-color: #f5dce8;
+  --border-crimson: var(--brand-crimson);
 
   /*** Toast Colors ***/
-  --toast-success-color: var(--button-primary-color);
-  --toast-error-color: #ff0000;
+  --toast-success-color: var(--brand-hot-pink);
+  --toast-error-color: #e03050;
 
   /*** Surfaces ***/
   --surface-paper: #ffffff;
   --surface-tint: #fff5f9;
+  --surface-card: #fffafc;
 
   /*** Text ***/
-  --text-primary: #1f2937;
+  --text-primary: #2c1420;
   --text-white: #ffffff;
-  --text-muted: #4b5563;
+  --text-muted: #7a4060;
+  --text-crimson: var(--brand-crimson);
+
+  /*** Typography ***/
+  --font-script: "Dancing Script", cursive;
+  --font-body: "Noto Sans JP", sans-serif;
+  --font-dancing: var(--font-script);
+  --font-noto: var(--font-body);
 }
