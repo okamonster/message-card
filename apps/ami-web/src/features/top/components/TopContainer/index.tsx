@@ -24,8 +24,8 @@ export const TopContainer = (): React.ReactNode => {
           <Image
             src="/images/main_logo.webp"
             alt="スワンスワンズ"
-            width={6032}
-            height={3080}
+            width={1500}
+            height={766}
             style={{ width: 320, height: "auto" }}
           />
         </div>
