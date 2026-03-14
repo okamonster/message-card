@@ -5,7 +5,7 @@ import "@mantine/notifications/styles.css";
 import "./globals.css";
 import "@/styles/variables.css";
 import styles from "./layout.module.css";
-import { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { EventProvider } from "@/features/event/EventProvider";
 import ServiceWorkerRegister from "./_components/ServiceWorkerRegister";
 

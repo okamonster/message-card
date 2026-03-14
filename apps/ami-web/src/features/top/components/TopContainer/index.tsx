@@ -12,7 +12,7 @@ export const TopContainer = (): React.ReactNode => {
           alt="あみちゃん"
           fill
           style={{ objectFit: "cover", objectPosition: "center top" }}
-          priority
+          fetchPriority="high"
           quality={95}
         />
         <div className={styles.photoOverlay} />
